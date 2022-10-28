@@ -20,18 +20,18 @@ function Users() {
     () => async () => {
       try {
         setLoading(true);
-        const url = "https://randomuser.me/api/?results=100";
+        const url = "https://randomuser.me/api/?results=50";
         const res = await fetch(url);
         const data = await res.json();
         setData((state) => data.results);
         setLoading(false);
       } catch (err) {
-        console.log(err.message);
+        console.log("Error Message: ",err.message);
       }
     },
     []
   );
-  const pages = 10;
+  const pages = 5;
   const perPage = 10;
   const lastRecord = page * perPage;
   const firstRecord = lastRecord - perPage;
@@ -40,6 +40,7 @@ function Users() {
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
+  console.log("Data", data);
 
   return (
     <div>
@@ -98,7 +99,7 @@ function Users() {
           >
             Prev
           </button>
-          {Array.from({ length: 10 }, (v, i) => i + 1).map((n) => (
+          {Array.from({ length: 5 }, (v, i) => i + 1).map((n) => (
             <button key={n} value={n} onClick={handleChangePage}>
               {n}
             </button>
