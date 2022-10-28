@@ -19,16 +19,16 @@ function Users() {
   const [page, setPage] = useState(1);
   useEffect(
     () => async () => {
+      setLoading(true);
       try {
-        setLoading(true);
         const url = "https://randomuser.me/api/?results=50";
         const res = await axios.get(url);
         const data = await res.data;
-        console.log(data)
+        console.log("Inside Useffect", data.results);
         setData((state) => data.results);
         setLoading(false);
       } catch (err) {
-        console.log("Error Message: ",err.message);
+        console.log("Error Message: ", err.message);
       }
     },
     []
@@ -42,54 +42,51 @@ function Users() {
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
-  console.log("Data", data);
 
-  return (
+  return loading ? (
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  ) : (
     <div>
-      {loading ? (
-        <Box sx={{ display: "flex" }}>
-          <CircularProgress />
-        </Box>
-      ) : (
-        <Grid container spacing={2}>
-          {records &&
-            records?.map((record) => {
-              return (
-                <Grid item xs={12} sm={4} key={record.email}>
-                  <Card sx={{ backgroundColor: "#eeeeee" }}>
-                    <CardHeader
-                      avatar={
-                        <Avatar aria-label="age" alt="age">
-                          {record.dob.age}
-                        </Avatar>
-                      }
-                      title={record.location.country}
-                      subheader={`${record.name.title} ${record.name.first} ${record.name.last}`}
-                    />
-                    <CardMedia
-                      component="img"
-                      image={record.picture.thumbnail}
-                      height="240"
-                      alt={record.name.first}
-                    />
-                    <CardContent>
-                      <Grid container>
-                        <Grid item md={6}>
-                          <pre>Username: {record.login.username}</pre>
-                          <pre>Password: {record.login.password}</pre>
-                          <pre>Email: {record.email}</pre>
-                          <pre>Mobile: {record.phone}</pre>
-                          <pre>DOB: {record.dob.date}</pre>
-                          <pre>Age: {record.dob.age} years old</pre>
-                        </Grid>
+      <Grid container spacing={2}>
+        {records &&
+          records?.map((record) => {
+            return (
+              <Grid item xs={12} sm={4} key={record.email}>
+                <Card sx={{ backgroundColor: "#eeeeee" }}>
+                  <CardHeader
+                    avatar={
+                      <Avatar aria-label="age" alt="age">
+                        {record.dob.age}
+                      </Avatar>
+                    }
+                    title={record.location.country}
+                    subheader={`${record.name.title} ${record.name.first} ${record.name.last}`}
+                  />
+                  <CardMedia
+                    component="img"
+                    image={record.picture.thumbnail}
+                    height="240"
+                    alt={record.name.first}
+                  />
+                  <CardContent>
+                    <Grid container>
+                      <Grid item md={6}>
+                        <pre>Username: {record.login.username}</pre>
+                        <pre>Password: {record.login.password}</pre>
+                        <pre>Email: {record.email}</pre>
+                        <pre>Mobile: {record.phone}</pre>
+                        <pre>DOB: {record.dob.date}</pre>
+                        <pre>Age: {record.dob.age} years old</pre>
                       </Grid>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              );
-            })}
-        </Grid>
-      )}
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+      </Grid>
       <Stack spacing={2}>
         <Typography sx={{ marginTop: "10px" }} component="div" varianat="h6">
           Page: {page} of {pages}
