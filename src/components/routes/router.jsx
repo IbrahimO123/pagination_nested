@@ -17,7 +17,7 @@ function Router() {
         <Route path=":id" element={<Product />}></Route>
       </Route>
       <Route path="/users" element={<Users />}></Route>
-      <Route path="/error" element={<Error />}></Route>
+      {/* <Route path="/error" element={<Error />}></Route> */}
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   );

@@ -51,11 +51,11 @@ function Links() {
               Users
             </NavLink>
           </Typography>
-          <Typography variant="body2" component="div">
+          {/* <Typography variant="body2" component="div">
             <NavLink className="link" to="/error">
               Error
             </NavLink>
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
     </Box>
