@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Avatar,
   CircularProgress,
@@ -21,8 +22,9 @@ function Users() {
       try {
         setLoading(true);
         const url = "https://randomuser.me/api/?results=50";
-        const res = await fetch(url);
-        const data = await res.json();
+        const res = await axios.get(url);
+        const data = await res.data;
+        console.log(data)
         setData((state) => data.results);
         setLoading(false);
       } catch (err) {
