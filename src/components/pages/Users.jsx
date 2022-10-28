@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Avatar,
-  Backdrop,
   CircularProgress,
   Grid,
   Card,
@@ -10,6 +9,7 @@ import {
   CardMedia,
   Typography,
   Stack,
+  Box,
 } from "@mui/material";
 
 function Users() {
@@ -44,12 +44,9 @@ function Users() {
   return (
     <div>
       {loading ? (
-        <div><Backdrop
-          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open={loading}
-        >
-          <CircularProgress color="inherit" />
-        </Backdrop></div>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
       ) : (
         <Grid container spacing={2}>
           {records &&
