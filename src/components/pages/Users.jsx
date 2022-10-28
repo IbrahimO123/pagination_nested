@@ -17,8 +17,8 @@ function Users() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  
-  const url = "https://randomuser.me/api/?results=50";
+
+  const url ="https://randomuser.me/api/?results=50"
   useEffect(
     () => async () => {
       setLoading(true);
@@ -38,7 +38,7 @@ function Users() {
   const lastRecord = page * perPage;
   const firstRecord = lastRecord - perPage;
   const records = data.slice(firstRecord, lastRecord);
-
+  console.log(data)
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
@@ -50,8 +50,7 @@ function Users() {
   ) : (
     <div>
       <Grid container spacing={2}>
-        {records &&
-          records?.map((record) => {
+        { records?.map((record) => {
             return (
               <Grid item xs={12} sm={4} key={record.email}>
                 <Card sx={{ backgroundColor: "#eeeeee" }}>
