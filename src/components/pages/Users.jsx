@@ -17,14 +17,14 @@ function Users() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
+  
+  const url = "https://randomuser.me/api/?results=50";
   useEffect(
     () => async () => {
       setLoading(true);
       try {
-        const url = "https://randomuser.me/api/?results=50";
         const res = await axios.get(url);
         const data = await res.data;
-        console.log("Inside Useffect", data.results);
         setData((state) => data.results);
         setLoading(false);
       } catch (err) {
