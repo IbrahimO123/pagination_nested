@@ -31,7 +31,7 @@ function Users() {
   };
 
   useEffect(() => {
-    setTimeout(()=>{fetchApi()}, 4000)
+    setTimeout(()=>{fetchApi()}, 3000)
   }, []);
 
   const pages = 5;
@@ -39,9 +39,6 @@ function Users() {
   const lastRecord = page * perPage;
   const firstRecord = lastRecord - perPage;
   const records = data.slice(firstRecord, lastRecord);
-
-   console.log("MY Data", data);
-   console.log("Records :", records);
 
   const handleChangePage = (e) => {
     setPage(e.target.value);
