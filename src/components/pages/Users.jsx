@@ -42,50 +42,49 @@ function Users() {
   };
 
   return loading ? (
-    <p>
-      Loading....
-    </p>
+    <p>Loading....</p>
   ) : (
     <div>
+      <h4>Random API Users Generator</h4>
       <Grid container spacing={2}>
-        { records?.map((record) => {
-            return (
-              <Grid item xs={12} md={4} key={record.email}>
-                <Card sx={{ backgroundColor: "#eeeeee" }}>
-                  <CardHeader
-                    avatar={
-                      <Avatar aria-label="age" alt="age">
-                        {record.dob.age}
-                      </Avatar>
-                    }
-                    title={record.location.country}
-                    subheader={`${record.name.title} ${record.name.first} ${record.name.last}`}
-                  />
-                  <CardMedia
-                    component="img"
-                    image={record.picture.thumbnail}
-                    height="240"
-                    alt={record.name.first}
-                  />
-                  <CardContent>
-                    <Grid container>
-                      <Grid item md={6}>
-                        <p>Username: {record.login.username}</p>
-                        <p>Password: {record.login.password}</p>
-                        <p>Email: {record.email}</p>
-                        <p>Mobile: {record.phone}</p>
-                        <p>DOB: {record.dob.date}</p>
-                        <p>Age: {record.dob.age} years old</p>
-                      </Grid>
+        {records?.map((record) => {
+          return (
+            <Grid item xs={12} md={4} key={record.email}>
+              <Card sx={{ backgroundColor: "#eeeeee" }}>
+                <CardHeader
+                  avatar={
+                    <Avatar aria-label="age" alt="age">
+                      {record.dob.age}
+                    </Avatar>
+                  }
+                  title={record.location.country}
+                  subheader={`${record.name.title} ${record.name.first} ${record.name.last}`}
+                />
+                <CardMedia
+                  component="img"
+                  image={record.picture.thumbnail}
+                  height="240"
+                  alt={record.name.first}
+                />
+                <CardContent>
+                  <Grid container>
+                    <Grid item md={6}>
+                      <pre>Username: {record.login.username}</pre>
+                      <pre>Password: {record.login.password}</pre>
+                      <pre>Email: {record.email}</pre>
+                      <pre>Mobile: {record.phone}</pre>
+                      <pre>DOB: {record.dob.date}</pre>
+                      <pre>Age: {record.dob.age} years old</pre>
                     </Grid>
-                  </CardContent>
-                </Card>
-              </Grid>
-            );
-          })}
+                  </Grid>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
+        })}
       </Grid>
       <Stack spacing={2}>
-        <Typography sx={{ marginTop: "10px" }} component="div" >
+        <Typography sx={{ marginTop: "10px" }} component="div" varianat="h6">
           Page: {page} of {pages}
         </Typography>
         <div>
