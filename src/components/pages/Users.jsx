@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  // Avatar,
-  // Grid,
-  // Card,
-  // CardHeader,
-  // CardContent,
-  // CardMedia,
+  Avatar,
+  Grid,
+  Card,
+  CardHeader,
+  CardContent,
+  CardMedia,
   Typography,
   Stack,
 } from "@mui/material";
@@ -45,17 +45,9 @@ function Users() {
     <p>Loading....</p>
   ) : (
     <div>
-      <div>
-        {records.map((record) => (
-          <div key={record.email}>
-            <p> {record.dob.age}</p>
-            <p>{record.location.country}</p>
-          </div>
-        ))}
-      </div>
-      {/* <h4>Random API Users Generator</h4>
+      <h4>Random API Users Generator</h4>
       <Grid container spacing={2}>
-        {records.map((record) => {
+        {records?.map((record) => {
           return (
             <Grid item xs={12} md={4} key={record.email}>
               <Card sx={{ backgroundColor: "#eeeeee" }}>
@@ -90,7 +82,7 @@ function Users() {
             </Grid>
           );
         })}
-      </Grid> */}
+      </Grid>
       <Stack spacing={2}>
         <Typography sx={{ marginTop: "10px" }} component="div" varianat="h6">
           Page: {page} of {pages}
