@@ -50,7 +50,7 @@ function Users() {
       <Grid container spacing={2}>
         { records?.map((record) => {
             return (
-              <Grid item xs={12} sm={4} key={record.email}>
+              <Grid item xs={12} md={4} key={record.email}>
                 <Card sx={{ backgroundColor: "#eeeeee" }}>
                   <CardHeader
                     avatar={
@@ -70,12 +70,12 @@ function Users() {
                   <CardContent>
                     <Grid container>
                       <Grid item md={6}>
-                        <pre>Username: {record.login.username}</pre>
-                        <pre>Password: {record.login.password}</pre>
-                        <pre>Email: {record.email}</pre>
-                        <pre>Mobile: {record.phone}</pre>
-                        <pre>DOB: {record.dob.date}</pre>
-                        <pre>Age: {record.dob.age} years old</pre>
+                        <p>Username: {record.login.username}</p>
+                        <p>Password: {record.login.password}</p>
+                        <p>Email: {record.email}</p>
+                        <p>Mobile: {record.phone}</p>
+                        <p>DOB: {record.dob.date}</p>
+                        <p>Age: {record.dob.age} years old</p>
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -85,7 +85,7 @@ function Users() {
           })}
       </Grid>
       <Stack spacing={2}>
-        <Typography sx={{ marginTop: "10px" }} component="div" varianat="h6">
+        <Typography sx={{ marginTop: "10px" }} component="div" >
           Page: {page} of {pages}
         </Typography>
         <div>
