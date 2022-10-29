@@ -29,7 +29,7 @@ function Users() {
         console.log("Error Message: ", err.message);
       }
     },
-    []
+    [data]
   );
   const pages = 5;
   const perPage = 10;
