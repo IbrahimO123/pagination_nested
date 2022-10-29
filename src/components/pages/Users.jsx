@@ -46,7 +46,7 @@ function Users() {
   return loading ? (
     <p>
       Loading....
-    </>
+    </p>
   ) : (
     <div>
       <Grid container spacing={2}>
