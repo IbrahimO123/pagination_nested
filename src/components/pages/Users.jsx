@@ -16,30 +16,33 @@ function Users() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  const url ="https://randomuser.me/api/?results=50"
-  useEffect(
-    () => async () => {
+  const url = "https://randomuser.me/api/?results=50";
+
+  const fetchApi = async () => {
+    try {
       setLoading(true);
-      try {
-        const res = await axios.get(url);
-        const getdata = await res.data;
-        setData(getdata.results)
-        setLoading(false);
-      } catch (err) {
-        console.log("Error Message: ", err.message);
-      }
-    },
-    []
-  );
+      const res = await axios.get(url);
+      const getdata = await res.data;
+      setData(getdata.results);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error Message: ", err.message);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(()=>{fetchApi()}, 4000)
+  }, []);
+
   const pages = 5;
   const perPage = 10;
   const lastRecord = page * perPage;
   const firstRecord = lastRecord - perPage;
   const records = data.slice(firstRecord, lastRecord);
 
-  console.log("MY Data", data)
-  console.log("Records :", records)
-  
+   console.log("MY Data", data);
+   console.log("Records :", records);
+
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
