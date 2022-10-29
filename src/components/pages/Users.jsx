@@ -23,13 +23,13 @@ function Users() {
       try {
         const res = await axios.get(url);
         const getdata = await res.data;
-        setData((state) => getdata.results);
+        setData(getdata.results)
         setLoading(false);
       } catch (err) {
         console.log("Error Message: ", err.message);
       }
     },
-    [data]
+    []
   );
   const pages = 5;
   const perPage = 10;
