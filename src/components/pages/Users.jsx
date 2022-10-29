@@ -6,6 +6,8 @@ import {
   Card,
   CardHeader,
   CardContent,
+  Backdrop,
+  CircularProgress ,
   CardMedia,
   Typography,
   Stack,
@@ -13,14 +15,13 @@ import {
 
 function Users() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
   const url = "https://randomuser.me/api/?results=50";
 
   const fetchApi = async () => {
     try {
-      setLoading(true);
       const res = await axios.get(url);
       const getdata = await res.data;
       setData(getdata.results);
@@ -31,7 +32,7 @@ function Users() {
   };
 
   useEffect(() => {
-    setTimeout(()=>{fetchApi()}, 3000)
+    setTimeout(()=>{fetchApi()}, 1000)
   }, []);
 
   const pages = 5;
@@ -45,7 +46,12 @@ function Users() {
   };
 
   return loading ? (
-    <p>Loading....</p>
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={loading}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
   ) : (
     <div>
       <h4>Random API Users Generator</h4>
