@@ -22,8 +22,8 @@ function Users() {
       setLoading(true);
       try {
         const res = await axios.get(url);
-        const data = await res.data;
-        setData((state) => data.results);
+        const getdata = await res.data;
+        setData((state) => getdata.results);
         setLoading(false);
       } catch (err) {
         console.log("Error Message: ", err.message);
