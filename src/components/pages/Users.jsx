@@ -38,7 +38,7 @@ function Users() {
   const lastRecord = page * perPage;
   const firstRecord = lastRecord - perPage;
   const records = data.slice(firstRecord, lastRecord);
-  console.log(data)
+  
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
