@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Avatar,
-  CircularProgress,
   Grid,
   Card,
   CardHeader,
@@ -10,7 +9,6 @@ import {
   CardMedia,
   Typography,
   Stack,
-  Box,
 } from "@mui/material";
 
 function Users() {
