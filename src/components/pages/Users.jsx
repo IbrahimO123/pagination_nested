@@ -44,9 +44,9 @@ function Users() {
   };
 
   return loading ? (
-    <Box sx={{ display: "flex" }}>
-      <CircularProgress />
-    </Box>
+    <p>
+      Loading....
+    </>
   ) : (
     <div>
       <Grid container spacing={2}>
