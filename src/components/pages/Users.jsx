@@ -47,7 +47,7 @@ function Users() {
     <div>
       <h4>Random API Users Generator</h4>
       <Grid container spacing={2}>
-        {records?.map((record) => {
+        {records.map((record) => {
           return (
             <Grid item xs={12} md={4} key={record.email}>
               <Card sx={{ backgroundColor: "#eeeeee" }}>
