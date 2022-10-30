@@ -1,11 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, AppBar, Toolbar, Typography } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Links() {
@@ -27,7 +22,9 @@ function Links() {
               textDecoration: "none",
             }}
           >
-            <Link to="/" >IBRAHIM</Link>
+            <Link style={{ color: "inherit", textDecoration: "none" }} to="/">
+              IBRAHIM
+            </Link>
           </Typography>
           <Typography variant="body2" component="div">
             <NavLink className="link" end to="/">
