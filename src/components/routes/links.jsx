@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Box,
   AppBar,
@@ -17,8 +17,6 @@ function Links() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -29,7 +27,7 @@ function Links() {
               textDecoration: "none",
             }}
           >
-            IBRAHIM
+            <Link to="/" >IBRAHIM</Link>
           </Typography>
           <Typography variant="body2" component="div">
             <NavLink className="link" end to="/">
